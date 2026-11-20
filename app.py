@@ -35,4 +35,4 @@ if question:
       
 if st.button("clear chat")
 st.session_state.chat_hist = []
-st.rerun()
+st.retrun()
