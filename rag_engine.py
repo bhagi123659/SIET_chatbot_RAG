@@ -1,4 +1,4 @@
-python
+
 import faiss
 import numpy as np
 from groq import Groq
@@ -186,4 +186,4 @@ if __name__ == "__main__":
         api_key
     )
 
-    print("AI Answer:", answer
+    print("AI Answer:", answer)
