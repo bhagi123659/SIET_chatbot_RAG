@@ -5,10 +5,10 @@ st.titel("shridevi Institute of Engineering and Techology - chatbot")
 st.caption("ask anything about college information...")
 st.caption("created by bhagirati s")
 
-myKey = st.secrects("GROQ_API_KEY")
+myKey = st.secrects["GROQ_API_KEY"]
 
 @st.cache_resource
-def intiate_rag():
+def initiate_rag():
   return load_base("01_college_Information.pdf")
 
 index,embed_model,chunks = initiate_rag()
@@ -24,14 +24,16 @@ question = st.chat_input("Ask anything about SIET college...")
 
 if question:
   st.session_state.chat_hist.append(
-    {"role" :"user", content = qestion})
+    {"role" :"user", "content" : qestion})
   with st.chat_message("user"):
     st.write(question)
     
   with st.chat_message("assistant"):
     with st.spinner("Asking RAG for answer..."):
-      answer = ask_rag(question, embed_model, chunks, index, api_key = mykey, num_chunks)
+      answer = ask_rag(question, embed_model, chunks, index, api_key = mykey)
       st.write(answer)
+      st.session_state.chat_hist.append(
+    {"role" :"user", "content" : qestion})
       
 if st.button("clear chat")
 st.session_state.chat_hist = []
