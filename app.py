@@ -16,7 +16,7 @@ st.title(
 
 st.caption("Ask anything about college information...")
 
-st.write("Created by Aishwarya S M")
+st.write("Created by Bhagirati S")
 
 
 # Load PDF and build vector database
